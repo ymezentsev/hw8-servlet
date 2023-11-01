@@ -20,7 +20,7 @@ public class TimeServlet extends HttpServlet {
             timezone = timezone.replace(" ", "+");
         }
 
-        String dateTime = LocalDateTime.now().atZone(ZoneId.of(timezone))
+        String dateTime = LocalDateTime.now(ZoneId.of(timezone)).atZone(ZoneId.of(timezone))
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z"));
 
         resp.setContentType("text/html; charset=utf-8");
